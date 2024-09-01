@@ -2,32 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* globals.css */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  display: flex;
+  flex-direction: column;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Navbar styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* Ganti sesuai kebutuhan */
+  z-index: 10;
+  height: 4rem; /* Atur sesuai tinggi navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+/* Sidebar styling */
+.sidebar {
+  position: fixed;
+  top: 4rem; /* Menyesuaikan dengan tinggi navbar */
+  left: 0;
+  height: calc(100vh - 4rem); /* Menyesuaikan dengan tinggi navbar */
+  width: 16rem; /* Atur sesuai lebar sidebar */
+  background-color: #f8f9fa; /* Ganti sesuai kebutuhan */
+  z-index: 10;
+}
+.sidebar-button {
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+  z-index: 20; /* Pastikan tombol berada di atas elemen lain */
+}
+
+
+/* Main content styling */
+main {
+  overflow-y: auto; /* Memungkinkan scroll di konten utama */
+  padding: 1rem; /* Padding untuk konten */
+  height: calc(100vh - 4rem); /* Mengatur tinggi konten utama */
+}
+/* @media screen and (max-width: 1280px) {
+  .main {
+    overflow-y: auto;
   }
 }
+@media screen and (max-width: 1024px) {
+  .main {
+    overflow-y: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    overflow-y: auto;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .main {
+    overflow-y: auto;
+  }
+} */
